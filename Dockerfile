@@ -26,7 +26,7 @@ RUN mkdir /root/TrinityCore/build
 WORKDIR /root/TrinityCore/build
 
 RUN cmake ../ -DCMAKE_INSTALL_PREFIX=/root/server && \
-    make -j 8 install && \
+    make -j $(nproc) install && \
     rm -rf /root/TrinityCore/build
 
 EXPOSE 3443 3724 8085
