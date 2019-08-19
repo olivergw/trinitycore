@@ -1,0 +1,33 @@
+auth:
+  image: olivergw/trinitycore
+  restart: always
+  command: /root/server/bin/authserver
+  links:
+    - db
+  ports:
+    - 0.0.0.0:3724:3724
+  volumes_from:
+    - data
+world:
+  image: olivergw/trinitycore
+  restart: always
+  command: /root/server/bin/worldserver
+  links:
+    - db
+  ports:
+    - 0.0.0.0:3443:3443
+    - 0.0.0.0:8085:8085
+  volumes_from:
+    - data
+db:
+  image: mariadb
+  restart: always
+  volumes:
+    - ./database:/var/lib/mysql
+  environment:
+    MYSQL_ROOT_PASSWORD: password
+data:
+  image: busybox
+  volumes:
+    - ./data:/root/server/data
+    - ./configs:/root/server/etc
