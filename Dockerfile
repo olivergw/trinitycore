@@ -15,7 +15,8 @@ RUN apt-get update && apt-get install -y \
     libboost-all-dev \
     p7zip \
     default-libmysqlclient-dev \
-    mariadb-client
+    mariadb-client \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN update-alternatives --install /usr/bin/cc cc /usr/bin/clang 100 && update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang 100
 
