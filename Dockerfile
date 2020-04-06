@@ -1,4 +1,4 @@
-FROM debian:9
+FROM debian:10
 LABEL maintainer="Oliver GW ogw@nwcn.co.uk"
 
 RUN apt-get update && apt-get install -y \
