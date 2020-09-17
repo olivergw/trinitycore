@@ -21,7 +21,7 @@ RUN apt-get update && apt-get install -y \
 RUN update-alternatives --install /usr/bin/cc cc /usr/bin/clang 100 && update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang 100
 
 LABEL version="3.3.5a.12340"
-LABEL build-date="Mon 29 Jun 2020 02:21:06 PM UTC"
+LABEL build-date="Thu 17 Sep 2020 11:32:27 AM UTC"
 
 RUN cd /root && git clone -b 3.3.5 git://github.com/TrinityCore/TrinityCore.git
 
