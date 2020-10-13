@@ -1,27 +1,4 @@
-FROM debian:10
-LABEL maintainer="Oliver GW ogw@nwcn.co.uk"
-
-RUN apt-get update && apt-get install -y \
-    git \
-    clang \
-    cmake \
-    gcc \
-    g++ \
-    libmariadbclient-dev \
-    libssl-dev \
-    libbz2-dev \
-    libreadline-dev \
-    libncurses-dev \
-    libboost-all-dev \
-    p7zip \
-    default-libmysqlclient-dev \
-    mariadb-client \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN update-alternatives --install /usr/bin/cc cc /usr/bin/clang 100 && update-alternatives --install /usr/bin/c++ c++ /usr/bin/clang 100
-
-LABEL version="3.3.5a.12340"
-LABEL build-date="Thu 17 Sep 2020 11:32:27 AM UTC"
+FROM olivergw/trinitycore-base
 
 RUN cd /root && git clone -b 3.3.5 git://github.com/TrinityCore/TrinityCore.git
 
